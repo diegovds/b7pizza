@@ -18,6 +18,7 @@ const eslintConfig = [
     ],
     rules: {
       camelcase: 'off',
+      'global-require': 'on',
     },
   }),
 ]
