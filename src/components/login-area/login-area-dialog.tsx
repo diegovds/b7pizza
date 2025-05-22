@@ -1,8 +1,9 @@
 'use client'
 
 import { useAuth } from '@/stores/auth'
+import { getCookie } from 'cookies-next/client'
 import { ArrowLeft } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../ui/dialog'
 import { LoginAreaStepEmail } from './login-area-step-email'
@@ -16,6 +17,11 @@ export const LoginAreaDialog = () => {
   const [step, setStep] = useState<Steps>('EMAIL')
   const [emailField, setEmailField] = useState('')
 
+  useEffect(() => {
+    const token = getCookie('token')
+    if (token) auth.setToken(token)
+  }, [auth])
+
   const handleStepEmail = (hasEmail: boolean, email: string) => {
     setEmailField(email)
 
@@ -28,7 +34,7 @@ export const LoginAreaDialog = () => {
 
   return (
     <Dialog open={auth.open} onOpenChange={(open) => auth.setOpen(open)}>
-      <DialogContent className="sm: max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             {step !== 'EMAIL' && (
