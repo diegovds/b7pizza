@@ -40,13 +40,15 @@ export const LoginAreaStepEmail = ({ onValidate }: Props) => {
         className="flex flex-col gap-4"
         onSubmit={handleSubmit(handleButton)}
       >
-        <p>Digite o seu e-mail</p>
-        <CustomInput
-          errors={errors.email?.message}
-          disabled={isSubmitting}
-          type="email"
-          {...register('email', { required: true })}
-        />
+        <div className="flex flex-col gap-2">
+          <p>Digite o seu e-mail</p>
+          <CustomInput
+            errors={errors.email?.message}
+            disabled={isSubmitting}
+            type="email"
+            {...register('email', { required: true })}
+          />
+        </div>
         <Button disabled={isSubmitting}>Continuar</Button>
       </form>
     </>
