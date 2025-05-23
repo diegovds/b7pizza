@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../ui/dialog'
 import { LoginAreaStepEmail } from './login-area-step-email'
+import { LoginAreaStepSignin } from './login-area-step-sign'
 import { LoginAreaStepSignup } from './login-area-step-signup'
 
 type Steps = 'EMAIL' | 'SIGNUP' | 'SIGNIN'
@@ -56,7 +57,7 @@ export const LoginAreaDialog = () => {
           {step === 'EMAIL' && (
             <LoginAreaStepEmail onValidate={handleStepEmail} />
           )}
-          {step === 'SIGNIN' && <div>Login</div>}
+          {step === 'SIGNIN' && <LoginAreaStepSignin email={emailField} />}
           {step === 'SIGNUP' && <LoginAreaStepSignup email={emailField} />}
         </div>
       </DialogContent>
