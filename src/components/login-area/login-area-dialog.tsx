@@ -19,7 +19,7 @@ export const LoginAreaDialog = () => {
 
   useEffect(() => {
     const token = getCookie('token')
-    if (token) auth.setToken(token)
+    if (token && token !== auth.token) auth.setToken(token)
   }, [auth])
 
   const handleStepEmail = (hasEmail: boolean, email: string) => {
