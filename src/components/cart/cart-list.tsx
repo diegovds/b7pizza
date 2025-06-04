@@ -1,6 +1,7 @@
 'use client'
 
 import { decimalToMoney } from '@/lib/utils'
+import { useAuth } from '@/stores/auth'
 import { useCart } from '@/stores/cart'
 import { useProducts } from '@/stores/products'
 import { useEffect, useState } from 'react'
@@ -8,6 +9,7 @@ import { Button } from '../ui/button'
 import { CartProduct } from './cart-product'
 
 export const CartList = () => {
+  const auth = useAuth()
   const cart = useCart()
   const products = useProducts()
 
@@ -42,7 +44,13 @@ export const CartList = () => {
         </div>
       </div>
 
-      <Button>Finalizar Compra</Button>
+      {auth.token ? (
+        <Button className="bg-green-700 hover:bg-green-900">
+          Finalizar Compra
+        </Button>
+      ) : (
+        <Button onClick={() => auth.setOpen(true)}>Login/Cadastro</Button>
+      )}
     </>
   )
 }
