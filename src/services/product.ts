@@ -1,5 +1,5 @@
-import { prisma } from "@/lib/prisma"
+import { prisma } from '@/lib/prisma'
 
 export const getAllProducts = async () => {
-    return await prisma.product.findMany()
+  return await prisma.product.findMany()
 }

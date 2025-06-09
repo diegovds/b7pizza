@@ -1,5 +1,6 @@
 'use client'
 
+import { apiWithAuth } from '@/lib/axios'
 import { decimalToMoney } from '@/lib/utils'
 import { useAuth } from '@/stores/auth'
 import { useCart } from '@/stores/cart'
@@ -29,6 +30,16 @@ export const CartList = () => {
 
   useEffect(calculateSubtotal, [cart, products])
 
+  const handleFinish = async () => {
+    if (cart.items.length > 0) {
+      const orderReq = await apiWithAuth.post('/order/new', {
+        cart: cart.items,
+      })
+
+      // TODO: Redirect to checkout page
+    }
+  }
+
   return (
     <>
       <div className="my-5 flex flex-col gap-3">
@@ -45,7 +56,10 @@ export const CartList = () => {
       </div>
 
       {auth.token ? (
-        <Button className="bg-green-700 hover:bg-green-900">
+        <Button
+          onClick={handleFinish}
+          className="bg-green-700 hover:bg-green-900"
+        >
           Finalizar Compra
         </Button>
       ) : (
