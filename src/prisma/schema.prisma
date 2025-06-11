@@ -45,6 +45,7 @@ model Order {
   userId    Int
   obs       String?
   status    OrderStatus @default(INITIALIZED)
+  subtotal  Decimal
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
 
@@ -59,6 +60,7 @@ model OrderProducts {
   orderId   Int
   productId Int
   quantity  Int
+  price     Decimal
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
