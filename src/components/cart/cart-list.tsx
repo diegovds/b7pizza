@@ -15,6 +15,7 @@ export const CartList = () => {
   const products = useProducts()
 
   const [subtotal, setSubtotal] = useState(0)
+  const [disabledButton, setDisabledButton] = useState(false)
   const shippingCost = 10
 
   const calculateSubtotal = () => {
@@ -32,11 +33,14 @@ export const CartList = () => {
 
   const handleFinish = async () => {
     if (cart.items.length > 0) {
+      setDisabledButton(true)
       const orderReq = await apiWithAuth.post('/order/new', {
         cart: cart.items,
       })
-
-      // TODO: Redirect to checkout page
+      if (orderReq.status === 201) {
+        window.location.href = orderReq.data.url
+      }
+      setDisabledButton(false)
     }
   }
 
@@ -59,6 +63,7 @@ export const CartList = () => {
         <Button
           onClick={handleFinish}
           className="bg-green-700 hover:bg-green-900"
+          disabled={disabledButton}
         >
           Finalizar Compra
         </Button>
