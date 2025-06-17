@@ -24,7 +24,7 @@ export const LoginAreaButton = ({ initialState }: Props) => {
   if (authState) {
     return (
       <>
-        <Link href="/pedidos">
+        <Link href="/orders">
           <Button>Meus Pedidos</Button>
         </Link>
         <Button onClick={handleLogout}>Sair</Button>
