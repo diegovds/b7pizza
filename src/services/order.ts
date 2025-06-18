@@ -2,8 +2,9 @@ import { prisma } from '@/lib/prisma'
 import { CartItem } from '@/types/cart-item'
 
 export const createNewOrder = async (userId: number, cart: CartItem[]) => {
+  const shippingCost = 10
   const orderProducts = []
-  let subtotal = 0
+  let subtotal = shippingCost
 
   for (const item of cart) {
     const product = await prisma.product.findUnique({
