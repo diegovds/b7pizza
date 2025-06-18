@@ -46,3 +46,23 @@ export const createNewOrder = async (userId: number, cart: CartItem[]) => {
 
   return newOrder
 }
+
+export const getOrdersByUserId = async (userId: number) => {
+  const orders = await prisma.order.findMany({
+    where: { userId },
+    select: {
+      id: true,
+      subtotal: true,
+      status: true,
+      orderProducts: {
+        select: {
+          quantity: true,
+          price: true,
+          product: true,
+        },
+      },
+    },
+  })
+
+  return orders
+}
