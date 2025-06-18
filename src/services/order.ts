@@ -56,6 +56,7 @@ export const getOrdersByUserId = async (userId: number) => {
       status: true,
       orderProducts: {
         select: {
+          id: true,
           quantity: true,
           price: true,
           product: true,
