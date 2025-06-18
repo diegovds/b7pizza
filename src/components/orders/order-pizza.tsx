@@ -21,7 +21,7 @@ export const OrderPizza = ({ product, price, quantity }: Props) => {
         />
       </div>
       <div className="flex flex-col items-end">
-        <div>{product.name}</div>
+        <div className="font-bold">{product.name}</div>
         <div className="text-sm">
           {decimalToMoney(price)} X {quantity}
         </div>
