@@ -8,17 +8,19 @@ type Props = {
 
 export const OrderItem = ({ order }: Props) => {
   return (
-    <div className="bg-secondary rounded-md p-4 text-sm">
+    <div className="bg-secondary flex flex-col gap-2 rounded-md p-4 text-sm">
       <div className="text-lg font-bold">Pedido nº{order.id}</div>
       <div className="text-lg font-bold">Itens:</div>
-      {order.orderProducts.map((product) => (
-        <OrderPizza
-          key={product.id}
-          product={product.product}
-          price={product.price}
-          quantity={product.quantity}
-        />
-      ))}
+      <div className="flex flex-col gap-2">
+        {order.orderProducts.map((product) => (
+          <OrderPizza
+            key={product.id}
+            product={product.product}
+            price={product.price}
+            quantity={product.quantity}
+          />
+        ))}
+      </div>
       <div className="text-base font-bold">Entrega R$ 10,00</div>
       <div className="text-base font-bold">Total:</div>
       <div className="flex justify-center gap-2">
