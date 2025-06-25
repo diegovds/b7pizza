@@ -28,7 +28,7 @@ export default async function Page() {
     <div>
       <Header />
       <main className="container mx-auto mb-10 text-center">
-        <h1 className="mb-4 text-2xl">Seus pedidos:</h1>
+        <h1 className="mb-4 text-2xl text-stone-100">Seus pedidos:</h1>
         {response.data.orders.length >= 1 && (
           <OrderList orders={response.data.orders} />
         )}

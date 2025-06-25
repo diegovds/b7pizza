@@ -17,7 +17,7 @@ export const OrderPizza = ({ product, price, quantity }: Props) => {
           alt={product.name}
           width={300}
           height={300}
-          className="w-full"
+          className="w-full rounded-md"
         />
       </div>
       <div className="flex flex-col items-end">

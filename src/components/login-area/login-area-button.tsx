@@ -2,6 +2,7 @@
 
 import { useAuth } from '@/stores/auth'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 
@@ -10,6 +11,7 @@ type Props = {
 }
 
 export const LoginAreaButton = ({ initialState }: Props) => {
+  const router = useRouter()
   const auth = useAuth()
   const [authState, setAuthState] = useState<boolean>(initialState)
 
@@ -19,6 +21,7 @@ export const LoginAreaButton = ({ initialState }: Props) => {
 
   const handleLogout = () => {
     auth.setToken(null)
+    router.refresh()
   }
 
   if (authState) {

@@ -8,7 +8,7 @@ type Props = {
 
 export const OrderItem = ({ order }: Props) => {
   return (
-    <div className="bg-secondary flex flex-col gap-2 rounded-md p-4 text-sm">
+    <div className="flex flex-col gap-2 rounded-md bg-slate-800 p-4 text-sm text-stone-100">
       <div className="text-lg font-bold">Pedido nº{order.id}</div>
       <div className="text-lg font-bold">Itens:</div>
       <div className="flex flex-col gap-2">

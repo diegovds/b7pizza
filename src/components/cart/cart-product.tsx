@@ -42,19 +42,29 @@ export const CartProduct = ({ data }: Props) => {
           alt={product.name}
           width={100}
           height={100}
-          className="w-full"
+          className="w-full rounded-md"
         />
       </div>
-      <div className="flex-1">
+      <div className="flex-1 text-stone-100">
         <div>{product.name}</div>
         <div className="text-sm">{decimalToMoney(product.price)}</div>
       </div>
       <div className="bg-secondary flex items-center gap-3 rounded-md p-2">
-        <Button size="sm" variant="ghost" onClick={handleMinusClick}>
+        <Button
+          className="cursor-pointer"
+          size="sm"
+          variant="ghost"
+          onClick={handleMinusClick}
+        >
           -
         </Button>
         <div>{qt}</div>
-        <Button size="sm" variant="ghost" onClick={handlePlusClick}>
+        <Button
+          className="cursor-pointer"
+          size="sm"
+          variant="ghost"
+          onClick={handlePlusClick}
+        >
           +
         </Button>
       </div>

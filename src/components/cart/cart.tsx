@@ -18,8 +18,8 @@ export const Cart = () => {
       open={open}
       onOpenChange={(open) => cart.setOpen(open)}
     >
-      <DrawerContent className="p-4">
-        <DrawerTitle>Carrinho</DrawerTitle>
+      <DrawerContent className="border-l-0 bg-slate-900 p-4">
+        <DrawerTitle className="text-stone-100">Carrinho</DrawerTitle>
         {cart.items.length <= 0 && <CartEmpty />}
         {cart.items.length > 0 && <CartList />}
       </DrawerContent>

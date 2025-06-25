@@ -22,13 +22,13 @@ export const PizzaItem = ({ data }: Props) => {
   }
 
   return (
-    <div className="bg-secondary rounded-md p-4 text-sm">
+    <div className="rounded-md bg-slate-800 p-4 text-sm text-stone-100">
       <Image
         src={data.image}
         alt={data.name}
         width={200}
         height={200}
-        className="mb-3 w-full"
+        className="mb-3 w-full rounded-md"
       />
       <div className="text-lg font-bold">{data.name}</div>
       <div>{decimalToMoney(data.price)}</div>

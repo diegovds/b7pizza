@@ -35,7 +35,7 @@ export const LoginAreaDialog = () => {
 
   return (
     <Dialog open={auth.open} onOpenChange={(open) => auth.setOpen(open)}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="bg-slate-900 text-stone-100 sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             {step !== 'EMAIL' && (

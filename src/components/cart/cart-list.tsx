@@ -51,7 +51,7 @@ export const CartList = () => {
           <CartProduct key={item.productId} data={item} />
         ))}
       </div>
-      <div className="my-4 text-right">
+      <div className="my-4 text-right text-stone-100">
         <div>Sub-total: {decimalToMoney(subtotal)}</div>
         <div>Frete: {decimalToMoney(shippingCost)}</div>
         <div className="font-bold">
@@ -62,7 +62,7 @@ export const CartList = () => {
       {auth.token ? (
         <Button
           onClick={handleFinish}
-          className="bg-green-700 hover:bg-green-900"
+          className="bg-green-700 text-stone-100 hover:bg-green-900"
           disabled={disabledButton}
         >
           Finalizar Compra
