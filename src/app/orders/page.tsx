@@ -1,4 +1,3 @@
-import { Header } from '@/components/layout/header'
 import { OrderList } from '@/components/orders/order-list'
 import { Order } from '@/types/order'
 import axios from 'axios'
@@ -26,7 +25,6 @@ export default async function Page() {
 
   return (
     <div>
-      <Header />
       <main className="container mx-auto mb-10 text-center">
         <h1 className="mb-4 text-2xl text-stone-100">Seus pedidos:</h1>
         {response.data.orders.length >= 1 && (

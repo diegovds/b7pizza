@@ -1,4 +1,5 @@
 import { Cart } from '@/components/cart/cart'
+import { Header } from '@/components/layout/header'
 import { LoginAreaDialog } from '@/components/login-area/login-area-dialog'
 import type { Metadata } from 'next'
 import { Roboto, Roboto_Mono } from 'next/font/google'
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body
         className={`${robotoSans.variable} ${robotoMono.variable} bg-slate-900 antialiased`}
       >
+        <Header />
         {children}
         <Cart />
         <LoginAreaDialog />
