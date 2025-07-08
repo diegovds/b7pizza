@@ -16,7 +16,7 @@ const robotoMono = Roboto_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'B7Pizza',
+  title: 'Pizzaria',
   description: '...',
 }
 
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${robotoSans.variable} ${robotoMono.variable} bg-slate-900 antialiased`}
+        className={`${robotoSans.variable} ${robotoMono.variable} mx-4 bg-slate-900 antialiased`}
       >
         <Header />
         {children}
