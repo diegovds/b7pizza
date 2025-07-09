@@ -7,7 +7,8 @@ export default async function Home() {
 
   return (
     <div>
-      <main className="container mx-auto mb-10">
+      <main className="container mx-auto mb-10 text-center">
+        <h1 className="mb-4 text-2xl text-stone-100">Nossos produtos:</h1>
         <PizzaList pizzas={pizzas} />
       </main>
     </div>
