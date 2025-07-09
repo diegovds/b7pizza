@@ -26,7 +26,11 @@ export const OrderItem = ({ order }: Props) => {
       <div className="flex justify-center gap-2">
         <div className="">{decimalToMoney(order.subtotal)}</div>
         <div>-</div>
-        {order.status === 'PAID' && <div className="font-bold">Pago</div>}
+        {order.status === 'PAID' ? (
+          <div className="font-bold">Pago</div>
+        ) : (
+          <div className="font-bold">Pagamento Pendente</div>
+        )}
       </div>
     </div>
   )
